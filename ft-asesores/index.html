@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FT Asesores Académicos | Asesoría Universitaria y de Posgrado</title>
+  <meta name="description" content="Más de 5 años de experiencia y +10k entregas exitosas en tesis, ensayos, artículos científicos y más. Ambato, Ecuador e Internacional." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#0D1626',
+              900: '#111D33',
+              800: '#152240',
+              700: '#1A2A4E',
+              600: '#1E3260',
+              500: '#243A6E',
+            },
+            brand: {
+              DEFAULT: '#1A2744',
+              light: '#243A6E',
+            },
+            gold: {
+              DEFAULT: '#F5C518',
+              light: '#FFD94D',
+              dark:  '#D4A800',
+            },
+          },
+          fontFamily: {
+            sans:    ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ── Smooth Scroll ── */
+    html { scroll-behavior: smooth; }
+
+    /* ── Nav active link ── */
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: #F5C518;
+      transition: width .3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── Hero gradient ── */
+    .hero-gradient {
+      background: linear-gradient(135deg, #0D1626 0%, #1A2744 50%, #243A6E 100%);
+    }
+
+    /* ── Floating particles (decorative dots) ── */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(245,197,24,.12);
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-20px) scale(1.05); }
+    }
+
+    /* ── Card hover lift ── */
+    .card-hover {
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.25);
+    }
+
+    /* ── WhatsApp float ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 9999;
+      animation: pulse-wa 2.5s infinite;
+    }
+    @keyframes pulse-wa {
+      0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
+      50%      { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+    }
+
+    /* ── Section divider wave ── */
+    .wave-divider svg { display: block; }
+
+    /* ── Testimonial card border glow ── */
+    .testimonial-card {
+      border-left: 4px solid #F5C518;
+      transition: border-color .3s;
+    }
+    .testimonial-card:hover { border-color: #25D366; }
+
+    /* ── Counter numbers ── */
+    .stat-number {
+      background: linear-gradient(135deg, #F5C518, #FFD94D);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Guarantee badges ── */
+    .badge-ring {
+      background: conic-gradient(#F5C518 0deg, rgba(245,197,24,.1) 0deg);
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-800 antialiased">
+
+  <!-- ══════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy-950/95 backdrop-blur-md border-b border-white/5">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+
+        <!-- Logo -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <img src="assets/logo.png" alt="FT Asesores logo"
+               class="h-10 md:h-12 w-auto rounded-lg" />
+          <span class="hidden sm:block">
+            <span class="block text-white font-display font-bold text-base leading-tight">FT Asesores</span>
+            <span class="block text-gold text-xs font-medium tracking-widest uppercase">Académicos</span>
+          </span>
+        </a>
+
+        <!-- Desktop Links -->
+        <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-300">
+          <li><a href="#inicio"    class="nav-link hover:text-white transition">Inicio</a></li>
+          <li><a href="#servicios" class="nav-link hover:text-white transition">Servicios</a></li>
+          <li><a href="#nosotros"  class="nav-link hover:text-white transition">Nosotros</a></li>
+          <li><a href="#precios"   class="nav-link hover:text-white transition">Precios</a></li>
+          <li><a href="#testimonios" class="nav-link hover:text-white transition">Testimonios</a></li>
+          <li><a href="#contacto"  class="nav-link hover:text-white transition">Contacto</a></li>
+        </ul>
+
+        <!-- CTA Button -->
+        <a href="https://wa.me/593994773730?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20asesor%C3%ADa%20acad%C3%A9mica."
+           target="_blank" rel="noopener"
+           class="hidden md:flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5a] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 shadow-lg">
+          <i class="fab fa-whatsapp text-base"></i>
+          Consulta Gratis
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition" aria-label="Abrir menú">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-white/10 mt-2">
+        <ul class="flex flex-col gap-1 pt-3 text-gray-300 text-sm font-medium">
+          <li><a href="#inicio"      class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition">Inicio</a></li>
+          <li><a href="#servicios"   class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition">Servicios</a></li>
+          <li><a href="#nosotros"    class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition">Nosotros</a></li>
+          <li><a href="#precios"     class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition">Precios</a></li>
+          <li><a href="#testimonios" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition">Testimonios</a></li>
+          <li><a href="#contacto"    class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition">Contacto</a></li>
+        </ul>
+        <a href="https://wa.me/593994773730?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20asesor%C3%ADa%20acad%C3%A9mica."
+           target="_blank" rel="noopener"
+           class="mt-3 flex items-center justify-center gap-2 bg-[#25D366] text-white text-sm font-semibold px-5 py-3 rounded-xl transition">
+          <i class="fab fa-whatsapp"></i> Consulta Gratis por WhatsApp
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════
+       HERO / INICIO
+  ══════════════════════════════════ -->
+  <section id="inicio" class="hero-gradient relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+
+    <!-- Decorative particles -->
+    <div class="particle w-72 h-72 top-10 -left-20 opacity-40" style="animation-delay:0s"></div>
+    <div class="particle w-48 h-48 bottom-20 right-10 opacity-30" style="animation-delay:2s"></div>
+    <div class="particle w-32 h-32 top-1/3 right-1/4 opacity-20" style="animation-delay:4s"></div>
+
+    <!-- Grid overlay texture -->
+    <div class="absolute inset-0 opacity-5"
+         style="background-image:linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px);background-size:40px 40px"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-gold/15 border border-gold/40 text-gold text-xs font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+        <i class="fas fa-star text-gold"></i>
+        +5 años de experiencia · +10,000 entregas exitosas
+      </div>
+
+      <!-- Logo centered (mobile) -->
+      <div class="flex justify-center mb-8">
+        <img src="assets/logo.png" alt="FT Asesores Académicos"
+             class="h-28 md:h-36 w-auto drop-shadow-2xl" />
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
+        Tu Éxito Académico
+        <span class="block text-gold">Garantizado</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="max-w-2xl mx-auto text-gray-300 text-lg md:text-xl leading-relaxed mb-10">
+        Asesoría profesional en tesis, artículos científicos, ensayos y más.
+        <strong class="text-white">Confidencial · Sin plagio · A tiempo.</strong>
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://wa.me/593994773730?text=Hola%2C%20quiero%20iniciar%20mi%20proyecto%20acad%C3%A9mico.%20%C2%BFPueden%20ayudarme%3F"
+           target="_blank" rel="noopener"
+           class="flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe5a] text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-green-500/40">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          Empieza tu Proyecto Ahora
+        </a>
+        <a href="#servicios"
+           class="flex items-center gap-2 border-2 border-white/30 hover:border-gold text-white hover:text-gold font-semibold text-base px-7 py-4 rounded-2xl transition-all duration-300">
+          Ver Servicios
+          <i class="fas fa-arrow-down text-sm animate-bounce"></i>
+        </a>
+      </div>
+
+      <!-- Trust bar -->
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+        <div class="text-center">
+          <div class="stat-number font-display font-black text-3xl md:text-4xl">+10K</div>
+          <div class="text-gray-400 text-xs mt-1">Entregas exitosas</div>
+        </div>
+        <div class="text-center">
+          <div class="stat-number font-display font-black text-3xl md:text-4xl">+5</div>
+          <div class="text-gray-400 text-xs mt-1">Años de experiencia</div>
+        </div>
+        <div class="text-center">
+          <div class="stat-number font-display font-black text-3xl md:text-4xl">100%</div>
+          <div class="text-gray-400 text-xs mt-1">Confidencialidad</div>
+        </div>
+        <div class="text-center">
+          <div class="stat-number font-display font-black text-3xl md:text-4xl">0%</div>
+          <div class="text-gray-400 text-xs mt-1">Plagio garantizado</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom wave -->
+    <div class="absolute bottom-0 left-0 right-0 wave-divider">
+      <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f9fafb"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SERVICIOS
+  ══════════════════════════════════ -->
+  <section id="servicios" class="py-20 md:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section Header -->
+      <div class="text-center mb-14">
+        <span class="inline-block text-gold font-semibold text-sm tracking-widest uppercase mb-3">Lo que hacemos</span>
+        <h2 class="font-display text-3xl md:text-5xl font-black text-navy-800 leading-tight">
+          Nuestros <span class="text-navy-700">Servicios</span>
+        </h2>
+        <p class="mt-4 text-gray-500 max-w-xl mx-auto text-base md:text-lg">
+          Cubrimos todo el ciclo académico con calidad, precisión y entrega puntual.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+        <!-- Card: Tesis -->
+        <div class="card-hover bg-white rounded-2xl p-7 shadow-md border border-gray-100 flex flex-col">
+          <div class="w-14 h-14 rounded-xl bg-navy-800 flex items-center justify-center mb-5 shadow-lg">
+            <i class="fas fa-graduation-cap text-gold text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800 mb-3">Tesis de Grado y Posgrado</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+            Desarrollamos tu tesis de pregrado, maestría o doctorado con estructura metodológica rigurosa, revisión de literatura y presentación impecable. Entregamos todos los capítulos.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Planteamiento del problema</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Marco teórico y metodología</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Análisis de resultados</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Verificación anti-plagio</li>
+          </ul>
+          <a href="https://wa.me/593994773730?text=Hola%2C%20necesito%20ayuda%20con%20mi%20tesis.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
+             target="_blank" rel="noopener"
+             class="mt-6 flex items-center justify-center gap-2 bg-navy-800 hover:bg-navy-700 text-white text-sm font-semibold py-3 px-5 rounded-xl transition-all duration-200">
+            <i class="fab fa-whatsapp"></i> Consultar precio
+          </a>
+        </div>
+
+        <!-- Card: Artículos Científicos -->
+        <div class="card-hover bg-white rounded-2xl p-7 shadow-md border border-gray-100 flex flex-col">
+          <div class="w-14 h-14 rounded-xl bg-navy-800 flex items-center justify-center mb-5 shadow-lg">
+            <i class="fas fa-newspaper text-gold text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800 mb-3">Artículos Científicos e Indexados</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+            Redactamos artículos de investigación listos para revistas indexadas (Scopus, Latindex, SciELO). Seguimos las normas editoriales exigidas por cada publicación.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Estructura IMRyD completa</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Citaciones y referencias correctas</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Abstract en inglés y español</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Listo para envío editorial</li>
+          </ul>
+          <a href="https://wa.me/593994773730?text=Hola%2C%20necesito%20un%20art%C3%ADculo%20cient%C3%ADfico.%20%C2%BFMe%20pueden%20ayudar%3F"
+             target="_blank" rel="noopener"
+             class="mt-6 flex items-center justify-center gap-2 bg-navy-800 hover:bg-navy-700 text-white text-sm font-semibold py-3 px-5 rounded-xl transition-all duration-200">
+            <i class="fab fa-whatsapp"></i> Consultar precio
+          </a>
+        </div>
+
+        <!-- Card: Ensayos y Monografías -->
+        <div class="card-hover bg-white rounded-2xl p-7 shadow-md border border-gray-100 flex flex-col">
+          <div class="w-14 h-14 rounded-xl bg-navy-800 flex items-center justify-center mb-5 shadow-lg">
+            <i class="fas fa-pen-fancy text-gold text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800 mb-3">Ensayos y Monografías</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+            Redactamos ensayos académicos, monografías e informes con argumentación sólida, fuentes confiables y el estilo de escritura requerido por tu institución educativa.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Cualquier disciplina o área</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Bibliografía actualizada</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Entrega en el plazo acordado</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Revisiones incluidas</li>
+          </ul>
+          <a href="https://wa.me/593994773730?text=Hola%2C%20necesito%20un%20ensayo%20o%20monograf%C3%ADa.%20%C2%BFMe%20pueden%20ayudar%3F"
+             target="_blank" rel="noopener"
+             class="mt-6 flex items-center justify-center gap-2 bg-navy-800 hover:bg-navy-700 text-white text-sm font-semibold py-3 px-5 rounded-xl transition-all duration-200">
+            <i class="fab fa-whatsapp"></i> Consultar precio
+          </a>
+        </div>
+
+        <!-- Card: Corrección APA -->
+        <div class="card-hover bg-white rounded-2xl p-7 shadow-md border border-gray-100 flex flex-col">
+          <div class="w-14 h-14 rounded-xl bg-navy-800 flex items-center justify-center mb-5 shadow-lg">
+            <i class="fas fa-spell-check text-gold text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800 mb-3">Corrección de Estilo y Normas APA</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+            Revisamos y corregimos tu documento aplicando Normas APA 7.ª edición, ortografía, redacción, coherencia, sangría, márgenes, tablas y listas de referencias.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> APA 7.ª edición</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Ortografía y gramática</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Formato de tablas y figuras</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Lista de referencias completa</li>
+          </ul>
+          <a href="https://wa.me/593994773730?text=Hola%2C%20necesito%20correcci%C3%B3n%20de%20estilo%20y%20normas%20APA%20para%20mi%20documento."
+             target="_blank" rel="noopener"
+             class="mt-6 flex items-center justify-center gap-2 bg-navy-800 hover:bg-navy-700 text-white text-sm font-semibold py-3 px-5 rounded-xl transition-all duration-200">
+            <i class="fab fa-whatsapp"></i> Consultar precio
+          </a>
+        </div>
+
+        <!-- Card: Asesoría Personalizada -->
+        <div class="card-hover bg-white rounded-2xl p-7 shadow-md border border-gray-100 flex flex-col">
+          <div class="w-14 h-14 rounded-xl bg-navy-800 flex items-center justify-center mb-5 shadow-lg">
+            <i class="fas fa-user-tie text-gold text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800 mb-3">Asesoría y Tutoría Personalizada</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+            Sesiones uno a uno con nuestros expertos para guiarte en cada etapa de tu investigación: desde la elección del tema hasta la defensa oral ante el tribunal.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Sesiones por videollamada</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Orientación metodológica</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Preparación para la defensa</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Seguimiento continuo</li>
+          </ul>
+          <a href="https://wa.me/593994773730?text=Hola%2C%20me%20interesa%20una%20asesor%C3%ADa%20personalizada%20para%20mi%20proyecto%20acad%C3%A9mico."
+             target="_blank" rel="noopener"
+             class="mt-6 flex items-center justify-center gap-2 bg-navy-800 hover:bg-navy-700 text-white text-sm font-semibold py-3 px-5 rounded-xl transition-all duration-200">
+            <i class="fab fa-whatsapp"></i> Consultar precio
+          </a>
+        </div>
+
+        <!-- Card: Revisiones Bibliográficas e Investigación -->
+        <div class="card-hover bg-white rounded-2xl p-7 shadow-md border border-gray-100 flex flex-col">
+          <div class="w-14 h-14 rounded-xl bg-navy-800 flex items-center justify-center mb-5 shadow-lg">
+            <i class="fas fa-search text-gold text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800 mb-3">Revisiones Bibliográficas e Investigaciones</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-grow">
+            Elaboramos revisiones sistemáticas, estados del arte e investigaciones documentales con fuentes académicas actualizadas y citadas correctamente.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Fuentes indexadas y verificadas</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Protocolos de investigación</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Proyectos de grado completos</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Bases de datos científicas</li>
+          </ul>
+          <a href="https://wa.me/593994773730?text=Hola%2C%20necesito%20una%20revisi%C3%B3n%20bibliogr%C3%A1fica%20o%20investigaci%C3%B3n%20documental."
+             target="_blank" rel="noopener"
+             class="mt-6 flex items-center justify-center gap-2 bg-navy-800 hover:bg-navy-700 text-white text-sm font-semibold py-3 px-5 rounded-xl transition-all duration-200">
+            <i class="fab fa-whatsapp"></i> Consultar precio
+          </a>
+        </div>
+
+      </div><!-- /grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       POR QUÉ ELEGIRNOS / GARANTÍAS
+  ══════════════════════════════════ -->
+  <section id="nosotros" class="py-20 md:py-28 bg-navy-950 relative overflow-hidden">
+
+    <!-- Decorative -->
+    <div class="absolute inset-0 opacity-5"
+         style="background-image:radial-gradient(circle at 2px 2px, rgba(255,255,255,.4) 1px, transparent 0);background-size:32px 32px"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid md:grid-cols-2 gap-14 items-center">
+        <!-- Left: Text -->
+        <div>
+          <span class="inline-block text-gold font-semibold text-sm tracking-widest uppercase mb-4">¿Por qué elegirnos?</span>
+          <h2 class="font-display text-3xl md:text-5xl font-black text-white leading-tight mb-6">
+            Nuestra Promesa de <span class="text-gold">Calidad</span>
+          </h2>
+          <p class="text-gray-400 text-base md:text-lg leading-relaxed mb-8">
+            En <strong class="text-white">FT Asesores Académicos</strong> trabajamos con más de 5 años de experiencia y +10,000 entregas exitosas. Cada proyecto es tratado con la máxima seriedad y compromiso profesional.
+          </p>
+
+          <!-- Guarantee list -->
+          <div class="space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center">
+                <i class="fas fa-shield-alt text-gold text-lg"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-base mb-1">Confidencialidad Total</h4>
+                <p class="text-gray-400 text-sm">Tu información y proyecto son 100% privados. Jamás compartimos ni publicamos tu trabajo.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center">
+                <i class="fas fa-clock text-gold text-lg"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-base mb-1">Entrega Puntual</h4>
+                <p class="text-gray-400 text-sm">Nos comprometemos con los plazos acordados. Trabajamos contra reloj si es necesario.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center">
+                <i class="fas fa-file-shield text-gold text-lg"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-base mb-1">Libre de Plagio Certificado</h4>
+                <p class="text-gray-400 text-sm">Cada entrega incluye verificación con sistemas profesionales anti-plagio y detección por IA. Similitud mínima garantizada.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center">
+                <i class="fas fa-users text-gold text-lg"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-base mb-1">Asesores Expertos</h4>
+                <p class="text-gray-400 text-sm">Nuestro equipo está formado por profesionales con postgrados en diversas áreas del conocimiento.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center">
+                <i class="fas fa-redo text-gold text-lg"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-base mb-1">Revisiones sin Costo Extra</h4>
+                <p class="text-gray-400 text-sm">Si necesitas ajustes, los realizamos sin cobros adicionales hasta tu total satisfacción.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Stats cards -->
+        <div class="grid grid-cols-2 gap-5">
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center card-hover">
+            <div class="text-4xl md:text-5xl font-black font-display text-gold mb-2">+10K</div>
+            <div class="text-gray-300 text-sm font-medium">Proyectos entregados</div>
+          </div>
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center card-hover">
+            <div class="text-4xl md:text-5xl font-black font-display text-gold mb-2">+5</div>
+            <div class="text-gray-300 text-sm font-medium">Años de experiencia</div>
+          </div>
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center card-hover">
+            <div class="text-4xl md:text-5xl font-black font-display text-gold mb-2">100%</div>
+            <div class="text-gray-300 text-sm font-medium">Confidencialidad</div>
+          </div>
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 text-center card-hover">
+            <div class="text-4xl md:text-5xl font-black font-display text-gold mb-2">0%</div>
+            <div class="text-gray-300 text-sm font-medium">Índice de plagio</div>
+          </div>
+          <div class="col-span-2 bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 rounded-2xl p-6 text-center card-hover">
+            <i class="fas fa-globe text-gold text-3xl mb-3"></i>
+            <div class="text-white font-bold text-base mb-1">Cobertura Internacional</div>
+            <div class="text-gray-400 text-sm">Ambato, Ecuador · y para todo el mundo</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PRECIOS
+  ══════════════════════════════════ -->
+  <section id="precios" class="py-20 md:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-14">
+        <span class="inline-block text-gold font-semibold text-sm tracking-widest uppercase mb-3">Inversión en tu futuro</span>
+        <h2 class="font-display text-3xl md:text-5xl font-black text-navy-800">
+          Precios <span class="text-navy-700">Transparentes</span>
+        </h2>
+        <p class="mt-4 text-gray-500 max-w-xl mx-auto">
+          Precios referenciales para tesis. El costo final se acuerda según el alcance de tu proyecto.
+        </p>
+      </div>
+
+      <!-- Pricing Cards (Tesis) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+
+        <!-- Pregrado -->
+        <div class="card-hover bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col">
+          <div class="bg-navy-800 p-6 text-center">
+            <i class="fas fa-user-graduate text-gold text-3xl mb-3"></i>
+            <h3 class="font-display font-bold text-white text-xl">Tesis de Pregrado</h3>
+            <p class="text-gray-400 text-sm mt-1">Licenciatura / Ingeniería</p>
+          </div>
+          <div class="p-7 flex flex-col flex-grow">
+            <div class="text-center mb-6">
+              <span class="text-5xl font-black font-display text-navy-800">$250</span>
+              <span class="text-gray-400 text-sm ml-1">desde</span>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-600 flex-grow">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Todos los capítulos</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Marco metodológico</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Normas APA 7</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Reporte anti-plagio</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Revisiones incluidas</li>
+            </ul>
+            <a href="https://wa.me/593994773730?text=Hola%2C%20me%20interesa%20la%20tesis%20de%20pregrado%20desde%20%24250.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20detalles%3F"
+               target="_blank" rel="noopener"
+               class="mt-6 flex items-center justify-center gap-2 bg-navy-800 hover:bg-navy-700 text-white font-bold py-3 px-5 rounded-xl transition">
+              <i class="fab fa-whatsapp"></i> Consultar ahora
+            </a>
+          </div>
+        </div>
+
+        <!-- Posgrado - FEATURED -->
+        <div class="card-hover bg-navy-800 rounded-2xl shadow-2xl border-2 border-gold overflow-hidden flex flex-col relative">
+          <div class="absolute top-0 right-0 bg-gold text-navy-900 text-xs font-black px-3 py-1 rounded-bl-xl">⭐ MÁS ELEGIDO</div>
+          <div class="bg-navy-700 p-6 text-center">
+            <i class="fas fa-award text-gold text-3xl mb-3"></i>
+            <h3 class="font-display font-bold text-white text-xl">Tesis de Posgrado</h3>
+            <p class="text-gray-400 text-sm mt-1">Maestría / Especialización</p>
+          </div>
+          <div class="p-7 flex flex-col flex-grow">
+            <div class="text-center mb-6">
+              <span class="text-5xl font-black font-display text-gold">$375</span>
+              <span class="text-gray-400 text-sm ml-1">desde</span>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-300 flex-grow">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Todo lo del pregrado +</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Mayor profundidad teórica</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Estadística avanzada</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Asesoría en defensa oral</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Verificación anti-plagio profesional</li>
+            </ul>
+            <a href="https://wa.me/593994773730?text=Hola%2C%20me%20interesa%20la%20tesis%20de%20posgrado%20desde%20%24375.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20detalles%3F"
+               target="_blank" rel="noopener"
+               class="mt-6 flex items-center justify-center gap-2 bg-gold hover:bg-yellow-400 text-navy-900 font-black py-3 px-5 rounded-xl transition">
+              <i class="fab fa-whatsapp"></i> Consultar ahora
+            </a>
+          </div>
+        </div>
+
+        <!-- Doctoral -->
+        <div class="card-hover bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col">
+          <div class="bg-navy-800 p-6 text-center">
+            <i class="fas fa-trophy text-gold text-3xl mb-3"></i>
+            <h3 class="font-display font-bold text-white text-xl">Tesis Doctoral</h3>
+            <p class="text-gray-400 text-sm mt-1">Doctorado / PhD</p>
+          </div>
+          <div class="p-7 flex flex-col flex-grow">
+            <div class="text-center mb-6">
+              <span class="text-5xl font-black font-display text-navy-800">$500</span>
+              <span class="text-gray-400 text-sm ml-1">desde</span>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-600 flex-grow">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Investigación de alto nivel</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Contribución original al campo</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Artículos científicos incluidos</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Preparación para defensa PhD</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Seguimiento completo</li>
+            </ul>
+            <a href="https://wa.me/593994773730?text=Hola%2C%20me%20interesa%20la%20tesis%20doctoral%20desde%20%24500.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20detalles%3F"
+               target="_blank" rel="noopener"
+               class="mt-6 flex items-center justify-center gap-2 bg-navy-800 hover:bg-navy-700 text-white font-bold py-3 px-5 rounded-xl transition">
+              <i class="fab fa-whatsapp"></i> Consultar ahora
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medios de Pago -->
+      <div class="bg-white rounded-2xl shadow border border-gray-100 p-8">
+        <h3 class="font-display font-bold text-navy-800 text-xl mb-6 text-center">
+          <i class="fas fa-credit-card text-gold mr-2"></i>Medios de Pago
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          <div class="flex flex-col items-center gap-3 p-5 rounded-xl bg-gray-50 border border-gray-100">
+            <i class="fas fa-university text-navy-800 text-3xl"></i>
+            <span class="font-semibold text-navy-800">Depósito Bancario</span>
+            <span class="text-gray-400 text-xs">Transferencia directa</span>
+          </div>
+          <div class="flex flex-col items-center gap-3 p-5 rounded-xl bg-gray-50 border border-gray-100">
+            <i class="fas fa-exchange-alt text-navy-800 text-3xl"></i>
+            <span class="font-semibold text-navy-800">Transferencia</span>
+            <span class="text-gray-400 text-xs">Cuenta bancaria local</span>
+          </div>
+          <div class="flex flex-col items-center gap-3 p-5 rounded-xl bg-gray-50 border border-gray-100">
+            <i class="fab fa-paypal text-[#003087] text-3xl"></i>
+            <span class="font-semibold text-navy-800">PayPal</span>
+            <span class="text-gray-400 text-xs">Pagos internacionales</span>
+          </div>
+        </div>
+        <p class="text-center text-gray-400 text-sm mt-6">
+          ¿Tienes dudas sobre el pago? Escríbenos y te explicamos todo.
+          <a href="https://wa.me/593994773730?text=Hola%2C%20tengo%20dudas%20sobre%20los%20medios%20de%20pago."
+             target="_blank" rel="noopener" class="text-[#25D366] font-semibold hover:underline ml-1">
+            Consultar por WhatsApp
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PROCESO / METODOLOGÍA
+  ══════════════════════════════════ -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-14">
+        <span class="inline-block text-gold font-semibold text-sm tracking-widest uppercase mb-3">Cómo trabajamos</span>
+        <h2 class="font-display text-3xl md:text-5xl font-black text-navy-800">
+          Proceso <span class="text-navy-700">Simple y Transparente</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="relative text-center">
+          <div class="w-16 h-16 rounded-full bg-navy-800 flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <span class="font-display font-black text-gold text-xl">1</span>
+          </div>
+          <div class="hidden lg:block absolute top-8 left-[calc(50%+32px)] right-0 h-0.5 bg-gold/30"></div>
+          <h4 class="font-bold text-navy-800 mb-2">Cuéntanos tu proyecto</h4>
+          <p class="text-gray-400 text-sm">Escríbenos por WhatsApp y comparte los detalles de tu trabajo académico.</p>
+        </div>
+        <div class="relative text-center">
+          <div class="w-16 h-16 rounded-full bg-navy-800 flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <span class="font-display font-black text-gold text-xl">2</span>
+          </div>
+          <div class="hidden lg:block absolute top-8 left-[calc(50%+32px)] right-0 h-0.5 bg-gold/30"></div>
+          <h4 class="font-bold text-navy-800 mb-2">Cotización personalizada</h4>
+          <p class="text-gray-400 text-sm">Te enviamos una propuesta adaptada a tu presupuesto y plazo de entrega.</p>
+        </div>
+        <div class="relative text-center">
+          <div class="w-16 h-16 rounded-full bg-navy-800 flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <span class="font-display font-black text-gold text-xl">3</span>
+          </div>
+          <div class="hidden lg:block absolute top-8 left-[calc(50%+32px)] right-0 h-0.5 bg-gold/30"></div>
+          <h4 class="font-bold text-navy-800 mb-2">Desarrollo y seguimiento</h4>
+          <p class="text-gray-400 text-sm">Nuestros expertos trabajan en tu proyecto con actualizaciones constantes.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-gold flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <span class="font-display font-black text-navy-900 text-xl">4</span>
+          </div>
+          <h4 class="font-bold text-navy-800 mb-2">Entrega y aprobación</h4>
+          <p class="text-gray-400 text-sm">Recibes tu proyecto listo, con reporte anti-plagio y soporte post-entrega.</p>
+        </div>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="mt-14 bg-navy-800 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
+        <h3 class="font-display font-black text-white text-2xl md:text-3xl mb-4">
+          ¿Listo para comenzar? <span class="text-gold">Escríbenos ahora</span>
+        </h3>
+        <p class="text-gray-300 mb-7 max-w-lg mx-auto">
+          Primera consulta completamente gratis. Sin compromisos. Resolvemos todas tus dudas.
+        </p>
+        <a href="https://wa.me/593994773730?text=Hola%20FT%20Asesores%2C%20quiero%20iniciar%20mi%20proyecto%20acad%C3%A9mico%20y%20necesito%20una%20cotizaci%C3%B3n."
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe5a] text-white font-black text-lg px-10 py-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          Iniciar Consulta Gratis
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       TESTIMONIOS
+  ══════════════════════════════════ -->
+  <section id="testimonios" class="py-20 md:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-14">
+        <span class="inline-block text-gold font-semibold text-sm tracking-widest uppercase mb-3">Lo que dicen nuestros clientes</span>
+        <h2 class="font-display text-3xl md:text-5xl font-black text-navy-800">
+          Historias de <span class="text-navy-700">Éxito Real</span>
+        </h2>
+        <p class="mt-4 text-gray-500 max-w-lg mx-auto">
+          Más de 10,000 estudiantes han confiado en nosotros. Estos son algunos de sus testimonios.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card bg-white rounded-2xl p-7 shadow-md card-hover">
+          <div class="flex items-center gap-1 text-gold mb-4">
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            "Me ayudaron con mi tesis de maestría en tiempo récord. El trabajo fue excelente, sin una sola observación del tribunal. 100% recomendados."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center text-white font-bold text-sm">MA</div>
+            <div>
+              <div class="font-semibold text-navy-800 text-sm">María A.</div>
+              <div class="text-gray-400 text-xs">Maestría en Gestión Empresarial · Ecuador</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card bg-white rounded-2xl p-7 shadow-md card-hover">
+          <div class="flex items-center gap-1 text-gold mb-4">
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            "Entregaron mi artículo científico indexado con todo el formato correcto. Fue aceptado en la primera revisión. Un servicio increíble y muy profesional."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center text-white font-bold text-sm">CR</div>
+            <div>
+              <div class="font-semibold text-navy-800 text-sm">Carlos R.</div>
+              <div class="text-gray-400 text-xs">Doctorado en Medicina · Colombia</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card bg-white rounded-2xl p-7 shadow-md card-hover">
+          <div class="flex items-center gap-1 text-gold mb-4">
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            "Tenía miedo de no graduarme a tiempo. FT Asesores me apoyaron con mi tesis de pregrado y entregaron en la fecha pactada. Sin plagio, sin problemas."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center text-white font-bold text-sm">LP</div>
+            <div>
+              <div class="font-semibold text-navy-800 text-sm">Luisa P.</div>
+              <div class="text-gray-400 text-xs">Ingeniería Civil · Ecuador</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card bg-white rounded-2xl p-7 shadow-md card-hover">
+          <div class="flex items-center gap-1 text-gold mb-4">
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            "El servicio de corrección APA fue exactamente lo que necesitaba. Me devolvieron el documento en menos de 24 horas, perfecto en todo sentido."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center text-white font-bold text-sm">JM</div>
+            <div>
+              <div class="font-semibold text-navy-800 text-sm">Jorge M.</div>
+              <div class="text-gray-400 text-xs">Psicología Clínica · Perú</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="testimonial-card bg-white rounded-2xl p-7 shadow-md card-hover">
+          <div class="flex items-center gap-1 text-gold mb-4">
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            "Me brindaron asesoría personalizada para preparar mi defensa oral. Gracias a ellos aprobé con la máxima calificación. ¡Eternamente agradecida!"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center text-white font-bold text-sm">VG</div>
+            <div>
+              <div class="font-semibold text-navy-800 text-sm">Valentina G.</div>
+              <div class="text-gray-400 text-xs">Maestría en Educación · Venezuela</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 6 -->
+        <div class="testimonial-card bg-white rounded-2xl p-7 shadow-md card-hover">
+          <div class="flex items-center gap-1 text-gold mb-4">
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+            <i class="fas fa-star text-sm"></i><i class="fas fa-star text-sm"></i>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            "Excelente equipo, muy responsables y profesionales. Mi ensayo quedó impecable y lo entregué a tiempo. Los precios son muy accesibles para la calidad que ofrecen."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-navy-800 flex items-center justify-center text-white font-bold text-sm">AH</div>
+            <div>
+              <div class="font-semibold text-navy-800 text-sm">Andrés H.</div>
+              <div class="text-gray-400 text-xs">Derecho · Ecuador</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── EVIDENCIAS / CONVERSACIONES REALES ── -->
+      <div class="mt-16">
+        <div class="text-center mb-10">
+          <h3 class="font-display font-bold text-navy-800 text-2xl mb-3">Evidencias Reales de Nuestros Clientes</h3>
+          <p class="text-gray-400 text-sm max-w-lg mx-auto">
+            Conversaciones reales con estudiantes que confiaron en nosotros y lograron sus objetivos académicos.
+          </p>
+        </div>
+
+        <!-- Grid de evidencias -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Evidencia 1: Chat WA - cliente referido / plagio tesis -->
+          <div class="card-hover bg-navy-800 rounded-2xl overflow-hidden shadow-lg border border-navy-700 flex flex-col">
+            <div class="bg-navy-700 px-4 py-2 flex items-center gap-2">
+              <i class="fab fa-whatsapp text-[#25D366] text-sm"></i>
+              <span class="text-gray-300 text-xs font-medium">Conversación real</span>
+            </div>
+            <img src="assets/evidencia1.png"
+                 alt="Cliente referido pide ayuda con plagio de su tesis"
+                 class="w-full object-cover flex-grow" />
+            <div class="px-4 py-3 bg-navy-900">
+              <p class="text-gray-400 text-xs italic">"Me recomendaron con ud, ayuda con el plagio de mi tesis"</p>
+            </div>
+          </div>
+
+          <!-- Evidencia 2: Chat WA - tesis aprobada -->
+          <div class="card-hover bg-navy-800 rounded-2xl overflow-hidden shadow-lg border border-navy-700 flex flex-col">
+            <div class="bg-navy-700 px-4 py-2 flex items-center gap-2">
+              <i class="fab fa-whatsapp text-[#25D366] text-sm"></i>
+              <span class="text-gray-300 text-xs font-medium">Conversación real</span>
+            </div>
+            <img src="assets/evidencia2.png"
+                 alt="Cliente confirma que su tesis fue aprobada con las correcciones"
+                 class="w-full object-cover flex-grow" />
+            <div class="px-4 py-3 bg-navy-900">
+              <p class="text-gray-400 text-xs italic">"Me aprobaron la tesis ya con esas correcciones, quedó todo listo 🤝"</p>
+            </div>
+          </div>
+
+          <!-- Evidencia 3: Tarjeta de logro - estilo visual coherente -->
+          <div class="card-hover bg-gradient-to-br from-navy-700 to-navy-900 rounded-2xl p-6 shadow-lg border border-gold/20 flex flex-col items-center justify-center text-center">
+            <div class="w-16 h-16 rounded-full bg-gold/20 border-2 border-gold flex items-center justify-center mb-4">
+              <i class="fas fa-graduation-cap text-gold text-2xl"></i>
+            </div>
+            <p class="text-white font-bold text-base mb-2">+10,000 proyectos</p>
+            <p class="text-gray-400 text-sm">entregados exitosamente a estudiantes de toda Latinoamérica</p>
+            <div class="mt-4 flex items-center gap-1">
+              <i class="fas fa-star text-gold text-xs"></i>
+              <i class="fas fa-star text-gold text-xs"></i>
+              <i class="fas fa-star text-gold text-xs"></i>
+              <i class="fas fa-star text-gold text-xs"></i>
+              <i class="fas fa-star text-gold text-xs"></i>
+            </div>
+          </div>
+
+          <!-- Evidencia 4: Tarjeta de garantía anti-plagio -->
+          <div class="card-hover bg-gradient-to-br from-green-900/40 to-navy-900 rounded-2xl p-6 shadow-lg border border-green-500/20 flex flex-col items-center justify-center text-center">
+            <div class="w-16 h-16 rounded-full bg-green-500/10 border-2 border-green-500/40 flex items-center justify-center mb-4">
+              <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
+            </div>
+            <p class="text-white font-bold text-base mb-2">100% Sin Plagio</p>
+            <p class="text-gray-400 text-sm">Verificamos cada entrega con sistemas profesionales de detección antes de enviártela</p>
+            <div class="mt-4 bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1">
+              <span class="text-green-400 text-xs font-semibold">✓ Garantía certificada</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       CONTACTO / FOOTER
+  ══════════════════════════════════ -->
+  <section id="contacto" class="bg-navy-950 py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+
+        <!-- Left: Contact info -->
+        <div>
+          <span class="inline-block text-gold font-semibold text-sm tracking-widest uppercase mb-4">Contáctanos</span>
+          <h2 class="font-display text-3xl md:text-4xl font-black text-white mb-4">
+            Estamos listos<br/><span class="text-gold">para ayudarte</span>
+          </h2>
+          <p class="text-gray-400 text-base mb-8 leading-relaxed">
+            Escríbenos por WhatsApp o correo electrónico. Respondemos en minutos durante nuestro horario de atención.
+          </p>
+
+          <div class="space-y-5">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-[#25D366]/20 border border-[#25D366]/40 flex items-center justify-center flex-shrink-0">
+                <i class="fab fa-whatsapp text-[#25D366] text-xl"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 text-xs uppercase tracking-wider">WhatsApp</div>
+                <a href="https://wa.me/593994773730?text=Hola%20FT%20Asesores%2C%20me%20interesa%20su%20servicio."
+                   target="_blank" rel="noopener"
+                   class="text-white font-semibold hover:text-[#25D366] transition text-lg">
+                  +593 99 477 3730
+                </a>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-envelope text-gold text-xl"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 text-xs uppercase tracking-wider">Correo electrónico</div>
+                <a href="mailto:fast.tareas.ec@gmail.com"
+                   class="text-white font-semibold hover:text-gold transition">
+                  fast.tareas.ec@gmail.com
+                </a>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-map-marker-alt text-gray-400 text-xl"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 text-xs uppercase tracking-wider">Ubicación</div>
+                <div class="text-white font-semibold">Ambato, Ecuador · Internacional</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-clock text-gray-400 text-xl"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 text-xs uppercase tracking-wider">Horario de atención</div>
+                <div class="text-white font-semibold">Lun – Vie: 8:00 – 20:00</div>
+                <div class="text-gray-400 text-xs">Sáb – Dom: 9:00 – 17:00 (hora Ecuador)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: CTA Card -->
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
+          <h3 class="font-display font-bold text-white text-xl mb-2">¿Tienes un proyecto en mente?</h3>
+          <p class="text-gray-400 text-sm mb-7">Cuéntanos en qué podemos ayudarte. Primera consulta sin costo.</p>
+
+          <div class="space-y-4">
+            <a href="https://wa.me/593994773730?text=Hola%2C%20necesito%20asesor%C3%ADa%20para%20mi%20TESIS.%20%C2%BFPueden%20ayudarme%3F"
+               target="_blank" rel="noopener"
+               class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-medium px-5 py-4 rounded-xl transition w-full">
+              <i class="fas fa-graduation-cap text-gold w-5"></i> Necesito ayuda con mi tesis
+            </a>
+            <a href="https://wa.me/593994773730?text=Hola%2C%20necesito%20asesor%C3%ADa%20para%20un%20ART%C3%8DCULO%20CIENT%C3%8DFICO.%20%C2%BFPueden%20ayudarme%3F"
+               target="_blank" rel="noopener"
+               class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-medium px-5 py-4 rounded-xl transition w-full">
+              <i class="fas fa-newspaper text-gold w-5"></i> Quiero un artículo científico
+            </a>
+            <a href="https://wa.me/593994773730?text=Hola%2C%20necesito%20ayuda%20con%20un%20ENSAYO%20o%20MONOGRAF%C3%8DA.%20%C2%BFPueden%20ayudarme%3F"
+               target="_blank" rel="noopener"
+               class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-medium px-5 py-4 rounded-xl transition w-full">
+              <i class="fas fa-pen-fancy text-gold w-5"></i> Necesito un ensayo o monografía
+            </a>
+            <a href="https://wa.me/593994773730?text=Hola%2C%20necesito%20CORRECCI%C3%93N%20DE%20ESTILO%20y%20Normas%20APA%20para%20mi%20documento."
+               target="_blank" rel="noopener"
+               class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-medium px-5 py-4 rounded-xl transition w-full">
+              <i class="fas fa-spell-check text-gold w-5"></i> Corrección de estilo / APA
+            </a>
+            <a href="https://wa.me/593994773730?text=Hola%2C%20tengo%20otra%20consulta%20acad%C3%A9mica.%20%C2%BFPueden%20ayudarme%3F"
+               target="_blank" rel="noopener"
+               class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-medium px-5 py-4 rounded-xl transition w-full">
+              <i class="fas fa-question-circle text-gold w-5"></i> Otra consulta académica
+            </a>
+          </div>
+
+          <a href="https://wa.me/593994773730?text=Hola%20FT%20Asesores%2C%20quiero%20iniciar%20mi%20proyecto%20acad%C3%A9mico."
+             target="_blank" rel="noopener"
+             class="mt-6 flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1ebe5a] text-white font-bold text-base px-7 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg w-full">
+            <i class="fab fa-whatsapp text-xl"></i>
+            Abrir WhatsApp Ahora
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer class="bg-black/60 border-t border-white/5 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+
+        <!-- Brand -->
+        <div class="flex items-center gap-3">
+          <img src="assets/logo.png" alt="FT Asesores" class="h-10 w-auto rounded-lg" />
+          <div>
+            <div class="text-white font-bold text-sm">FT Asesores Académicos</div>
+            <div class="text-gray-500 text-xs">Ambato, Ecuador · Internacional</div>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="flex flex-wrap items-center justify-center gap-5 text-gray-400 text-xs">
+          <a href="#inicio"      class="hover:text-white transition">Inicio</a>
+          <a href="#servicios"   class="hover:text-white transition">Servicios</a>
+          <a href="#precios"     class="hover:text-white transition">Precios</a>
+          <a href="#testimonios" class="hover:text-white transition">Testimonios</a>
+          <a href="#contacto"    class="hover:text-white transition">Contacto</a>
+        </div>
+
+        <!-- Social -->
+        <div class="flex items-center gap-3">
+          <a href="https://wa.me/593994773730" target="_blank" rel="noopener"
+             class="w-9 h-9 rounded-full bg-[#25D366]/20 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] hover:bg-[#25D366] hover:text-white transition">
+            <i class="fab fa-whatsapp text-sm"></i>
+          </a>
+          <a href="mailto:fast.tareas.ec@gmail.com"
+             class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition">
+            <i class="fas fa-envelope text-sm"></i>
+          </a>
+          <!-- PLACEHOLDER: Agrega tus redes sociales aquí -->
+          <!-- Ejemplo: Instagram -->
+          <!-- <a href="https://instagram.com/TU_USUARIO" target="_blank" rel="noopener"
+             class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-pink-500 hover:text-white hover:border-pink-500 transition">
+            <i class="fab fa-instagram text-sm"></i>
+          </a> -->
+        </div>
+
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-white/5 text-center text-gray-600 text-xs">
+        © 2024 FT Asesores Académicos. Todos los derechos reservados.
+        · <span class="text-gray-500">Confidencialidad garantizada · Sin plagio · Entrega puntual</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+  ══════════════════════════════════ -->
+  <a href="https://wa.me/593994773730?text=Hola%20FT%20Asesores%2C%20me%20interesa%20su%20servicio%20de%20asesor%C3%ADa%20acad%C3%A9mica."
+     target="_blank" rel="noopener"
+     class="whatsapp-float w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl hover:bg-[#1ebe5a] hover:scale-110 transition-all duration-300"
+     aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp text-white text-3xl"></i>
+  </a>
+
+  <!-- ══════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════ -->
+  <script>
+    // ── Mobile menu toggle ──
+    const menuBtn  = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.querySelector('i').classList.toggle('fa-bars');
+      menuBtn.querySelector('i').classList.toggle('fa-times');
+    });
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.querySelector('i').classList.add('fa-bars');
+        menuBtn.querySelector('i').classList.remove('fa-times');
+      });
+    });
+
+    // ── Navbar scroll effect ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-2xl');
+      } else {
+        navbar.classList.remove('shadow-2xl');
+      }
+    });
+
+    // ── Intersection Observer: fade-in on scroll ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.card-hover, section h2, section h3').forEach(el => {
+      el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
